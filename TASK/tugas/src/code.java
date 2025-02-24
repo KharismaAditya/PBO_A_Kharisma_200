@@ -1,21 +1,32 @@
 import java.util.Scanner;
 
 public class code {
+
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
-        System.out.println("Pilih login: ");
-        System.out.println("1. Admin\n2. Mahasiswa");
-        System.out.print("Masukkan pilihan: ");String pilih = input.next();
-        switch (pilih){
-            case "1":
-                admin(input);
-                break;
-            case "2":
-                logmhs(input);
-                break;
-            default:
-                System.err.println("INPUT YANG ANDA MASUKKAN TIDAK VALID");
+        boolean loop = true;
+
+        while(loop){
+            System.out.println("Pilih login: ");
+            System.out.println("1. Admin\n2. Mahasiswa");
+            System.out.print("Masukkan pilihan: ");String pilih = input.next();
+            switch (pilih){
+                case "1":
+                    admin(input);
+                    break;
+                case "2":
+                    logmhs(input);
+                    break;
+                default:
+                    System.out.println("INPUT YANG ANDA MASUKKAN TIDAK VALID");
+            }
+            System.out.print("ingin melanjutkan?(y/n) : "); pilih = input.next();
+            if(pilih.equalsIgnoreCase("n")){
+                loop = false;
+            }
         }
+        System.out.println("TERIMA KASIH TELAH MENGGUNAKAN PROGRAM INI");
+
     }
 
     private static void admin(Scanner input){

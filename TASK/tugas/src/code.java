@@ -18,7 +18,7 @@ public class code {
                     logmhs(input);
                     break;
                 default:
-                    System.out.println("INPUT YANG ANDA MASUKKAN TIDAK VALID");
+                    System.out.println("INPUT YANG ANDA MASUKKAN TIDAK VALID, Harap masukkan Input yang benar!!");
             }
             System.out.print("ingin melanjutkan?(y/n) : "); pilih = input.next();
             if(pilih.equalsIgnoreCase("n")){

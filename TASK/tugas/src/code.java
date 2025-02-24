@@ -20,7 +20,7 @@ public class code {
 
     private static void admin(Scanner input){
         input.nextLine();
-        System.out.println("Login admin");
+        System.out.println("Login page admin");
         System.out.print("Masukkan Username: ");String admin = input.nextLine();
         System.out.print("Masukkan Password: "); String pass = input.nextLine();
 

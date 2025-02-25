@@ -12,24 +12,22 @@ public class code {
             System.out.print("Masukkan pilihan: ");String pilih = input.next();
             switch (pilih){
                 case "1":
-                    admin(input);
+                    loop = admin(input);
                     break;
                 case "2":
-                    logmhs(input);
+                    loop = logmhs(input);
                     break;
                 default:
                     System.out.println("INPUT YANG ANDA MASUKKAN TIDAK VALID, Harap masukkan Input yang benar!!");
-            }
-            System.out.print("ingin melanjutkan?(y/n) : "); pilih = input.next();
-            if(pilih.equalsIgnoreCase("n")){
-                loop = false;
+                    System.out.println("\n");
             }
         }
+        System.out.printf("\n");
         System.out.println("TERIMA KASIH TELAH MENGGUNAKAN PROGRAM INI");
 
     }
 
-    private static void admin(Scanner input){
+    private static boolean admin(Scanner input){
         input.nextLine();
         System.out.println("Login page admin");
         System.out.print("Masukkan Username: ");String admin = input.nextLine();
@@ -40,9 +38,10 @@ public class code {
         }else{
             System.err.println("Login gagal, Username atau password salah!!");
         }
+        return false;
     }
 
-    private static void logmhs(Scanner input){
+    private static boolean logmhs(Scanner input){
         input.nextLine();
         String nb = "Muhammad Kharisma Aditya Putra";
         String nimb = "202410370110200";
@@ -58,5 +57,6 @@ public class code {
         }else{
             System.err.println("Login gagal, Nama atau NIM salah!");
         }
+        return false;
     }
 }

@@ -19,9 +19,10 @@ public class code {
                     break;
                 default:
                     System.out.println("INPUT YANG ANDA MASUKKAN TIDAK VALID, Harap masukkan Input yang benar!!");
-                    System.out.println("\n");
+                    System.out.print("\n");
             }
         }
+        input.close();
     }
 
     private static boolean admin(Scanner input){
@@ -60,7 +61,7 @@ public class code {
                 System.err.println("Login gagal, Nama atau NIM salah!");
             }
         } catch (NumberFormatException e) {
-            System.err.println("ERROE: NIM HARUS BERUPA ANGKA!!");
+            System.err.println("ERROE: NIM Harus berupa angka!!");
         }
 
         return false;

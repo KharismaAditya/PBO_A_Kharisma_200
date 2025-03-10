@@ -10,7 +10,7 @@ public class Student {
     }
 
     void gagal(){
-        System.out.println("LOGIN GAGAL, Nama atau NIM salah!");
+        System.err.println("LOGIN GAGAL, Nama atau NIM salah!");
     }
 
     void login(){

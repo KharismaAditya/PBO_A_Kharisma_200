@@ -12,9 +12,7 @@ public class code {
             System.out.println("Pilih login: ");
             System.out.println("1. Admin\n2. Mahasiswa");
             System.out.print("Masukkan pilihan: ");String pilih = input.next();
-
             input.nextLine();
-
             switch (pilih){
                 case "1":
                     loop = admininput(input);
@@ -36,7 +34,6 @@ public class code {
         System.out.print("Masukkan Password: ");
         user1.password = input.nextLine();
         user1.login();
-
         return false;
     }
 
@@ -46,7 +43,6 @@ public class code {
         System.out.print("Masukkan NIM anda: ");
         user2.NIM = input.nextLine();
         user2.login();
-
         return false;
     }
 }

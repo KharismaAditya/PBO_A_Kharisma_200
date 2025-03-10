@@ -6,7 +6,7 @@ public class Admin {
         System.out.println("LOGIN ADMIN BERHASIL");
     }
     void gagal(){
-        System.out.println("Login gagal, Username atau Password salah!!");
+        System.err.println("Login gagal, Username atau Password salah!!");
     }
 
     void login(){

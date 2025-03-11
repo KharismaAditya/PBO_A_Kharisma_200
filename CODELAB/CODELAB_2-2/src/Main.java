@@ -1,15 +1,7 @@
 public class Main {
     public static void main(String[] args){
-        BankAccount account1 = new BankAccount();
-        BankAccount account2 = new BankAccount();
-
-        account1.accountNumber = "202410370110200";
-        account1.ownerName = "Kharisma Aditya";
-        account1.balance = 50000;
-
-        account2.accountNumber = "202410370110039";
-        account2.ownerName = "Firdaus";
-        account2.balance = 40000;
+        BankAccount account1 = new BankAccount("202410370110200", "Kharisma Aditya", 50000);
+        BankAccount account2 = new BankAccount("202410370110200", "Firdaus", 40000);
 
         account1.displayinfo();
         account2.displayinfo();

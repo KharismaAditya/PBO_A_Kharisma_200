@@ -3,6 +3,12 @@ public class BankAccount {
     String ownerName;
     double balance;
 
+    BankAccount(String aN, String oN, double bL){
+        this.accountNumber = aN;
+        this.ownerName = oN;
+        this.balance = bL;
+    }
+
     void displayinfo(){
         System.out.println("Nomor Rekening: " + accountNumber);
         System.out.println("Nama Pemilik: " + ownerName);

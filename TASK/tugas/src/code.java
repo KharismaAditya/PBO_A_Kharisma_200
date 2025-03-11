@@ -1,9 +1,6 @@
 import java.util.Scanner;
 
 public class code {
-    static  Admin user1 = new Admin();
-    static  Student user2 = new Student();
-
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
         boolean loop = true;
@@ -29,19 +26,17 @@ public class code {
     }
 
     private static boolean admininput(Scanner input){
-        System.out.print("Masukkan Username: ");
-        user1.nama = input.nextLine();
-        System.out.print("Masukkan Password: ");
-        user1.password = input.nextLine();
+        System.out.print("Masukkan Username: "); String usernama = input.nextLine();
+        System.out.print("Masukkan Password: "); String userpass = input.nextLine();
+        Admin user1 = new Admin(usernama, userpass);
         user1.login();
         return false;
     }
 
     private static boolean studentinput(Scanner input){
-        System.out.print("Masukkan Nama: ");
-        user2.nama = input.nextLine();
-        System.out.print("Masukkan NIM anda: ");
-        user2.NIM = input.nextLine();
+        System.out.print("Masukkan Nama: "); String usernama = input.nextLine();
+        System.out.print("Masukkan NIM anda: "); String userpass = input.nextLine();
+        Student user2 = new Student(usernama, userpass);
         user2.login();
         return false;
     }

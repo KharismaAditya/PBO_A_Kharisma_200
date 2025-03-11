@@ -1,7 +1,12 @@
+
 public class Student {
     String nama;
     String NIM;
 
+    Student(String inama, String ipass){
+        this.nama = inama;
+        this.NIM = ipass;
+    }
     void berhasil(){
         System.out.print("\n");
         System.out.println("LOGIN MAHASISWA BERHASIL");
@@ -14,7 +19,9 @@ public class Student {
     }
 
     void login(){
-        if(nama.equalsIgnoreCase("Muhammad Kharisma Aditya Putra") && NIM.equalsIgnoreCase("202410370110200")){
+        final String studentpass = "Muhammad Kharisma Aditya Putra";
+        final String nimpass = "202410370110200";
+        if(nama.equalsIgnoreCase(studentpass) && NIM.equalsIgnoreCase(nimpass)){
             berhasil();
         }else{
             gagal();

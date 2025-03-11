@@ -30,7 +30,8 @@ public class BankAccount {
     }
 
     void withdrawMoney(double ammount){
-        System.out.println(ownerName + " Menarik RP" + ammount + periksa(ammount, balance) + " Saldo sekarang: Rp" +tariktunai(ammount, balance));
+        balance = tariktunai(ammount, balance);
+        System.out.println(ownerName + " Menarik RP" + ammount + periksa(ammount, balance) + " Saldo sekarang: Rp" +balance);
 
     }
 }

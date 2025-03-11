@@ -21,5 +21,9 @@ public class Main {
         System.out.print("\n");
         account1.withdrawMoney(80000);
         account2.withdrawMoney(30000);
+
+        System.out.print("\n");
+        account1.displayinfo();
+        account2.displayinfo();
     }
 }

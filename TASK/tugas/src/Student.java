@@ -3,9 +3,9 @@ public class Student {
     String nama;
     String NIM;
 
-    Student(String inama, String ipass){
-        this.nama = inama;
-        this.NIM = ipass;
+    Student(String iNama, String iPass){
+        this.nama = iNama;
+        this.NIM = iPass;
     }
     void berhasil(){
         System.out.print("\n");
@@ -19,9 +19,9 @@ public class Student {
     }
 
     void login(){
-        final String studentpass = "Muhammad Kharisma Aditya Putra";
-        final String nimpass = "202410370110200";
-        if(nama.equalsIgnoreCase(studentpass) && NIM.equalsIgnoreCase(nimpass)){
+        final String studentPass = "Muhammad Kharisma Aditya Putra";
+        final String nimPass = "202410370110200";
+        if(nama.equalsIgnoreCase(studentPass) && NIM.equalsIgnoreCase(nimPass)){
             berhasil();
         }else{
             gagal();

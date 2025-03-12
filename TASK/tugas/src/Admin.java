@@ -2,9 +2,9 @@ public class Admin {
     String nama;
     String password;
 
-    Admin(String inama, String ipass){
-        this.nama = inama;
-        this.password = ipass;
+    Admin(String iNama, String iPass){
+        this.nama = iNama;
+        this.password = iPass;
     }
 
     void berhasil(){
@@ -16,9 +16,9 @@ public class Admin {
     }
 
     void login(){
-        final String adminpass = "Admin200";
-        final String passpass = "Password200";
-        if(nama.equals(adminpass) && password.equals(passpass)){
+        final String adminPass = "Admin200";
+        final String passPass = "Password200";
+        if(nama.equals(adminPass) && password.equals(passPass)){
             berhasil();
         }else{
             gagal();

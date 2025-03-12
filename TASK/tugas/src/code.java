@@ -26,17 +26,17 @@ public class code {
     }
 
     private static boolean admininput(Scanner input){
-        System.out.print("Masukkan Username: "); String usernama = input.nextLine();
-        System.out.print("Masukkan Password: "); String userpass = input.nextLine();
-        Admin user1 = new Admin(usernama, userpass);
+        System.out.print("Masukkan Username: "); String userNama = input.nextLine();
+        System.out.print("Masukkan Password: "); String userPass = input.nextLine();
+        Admin user1 = new Admin(userNama, userPass);
         user1.login();
         return false;
     }
 
     private static boolean studentinput(Scanner input){
-        System.out.print("Masukkan Nama: "); String usernama = input.nextLine();
-        System.out.print("Masukkan NIM anda: "); String userpass = input.nextLine();
-        Student user2 = new Student(usernama, userpass);
+        System.out.print("Masukkan Nama: "); String userNama = input.nextLine();
+        System.out.print("Masukkan NIM anda: "); String userPass = input.nextLine();
+        Student user2 = new Student(userNama, userPass);
         user2.login();
         return false;
     }

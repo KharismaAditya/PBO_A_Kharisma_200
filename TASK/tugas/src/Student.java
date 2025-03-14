@@ -1,30 +1,32 @@
 
-public class Student {
-    String nama;
-    String NIM;
-
-    Student(String iNama, String iPass){
-        this.nama = iNama;
-        this.NIM = iPass;
-    }
-    void berhasil(){
-        System.out.print("\n");
-        System.out.println("LOGIN MAHASISWA BERHASIL");
-        System.out.println("Nama: " + nama);
-        System.out.println("NIM: " + NIM);
+public class Student extends User{
+    public Student(String userName, String userPass){
+        super(userName, userPass);
     }
 
-    void gagal(){
-        System.err.println("LOGIN GAGAL, Nama atau NIM salah!");
-    }
-
-    void login(){
-        final String studentPass = "Muhammad Kharisma Aditya Putra";
-        final String nimPass = "202410370110200";
-        if(nama.equalsIgnoreCase(studentPass) && NIM.equalsIgnoreCase(nimPass)){
-            berhasil();
+    int scan;
+    @Override
+    public void login(){
+        final String correctUser = "Muhammad Kharisma Aditya Putra";
+        final String correctPass = "202410370110200";
+        if(getUserName().equals(correctUser) && getUserPass().equals(correctPass)){
+            scan = 1;
+            displayInfo();
         }else{
-            gagal();
+            scan = 0;
+            displayInfo();
+        }
+
+    }
+
+    public void displayInfo(){
+        if(scan == 1){
+            System.out.println("LOGIN MAHASISWA BERHASIL");
+            System.out.println("Nama: " + getUserName());
+            System.out.println("NIM: " + getUserPass());
+        }else {
+            System.err.println("LOGIN ADMIN GAGAL!!");
         }
     }
+
 }

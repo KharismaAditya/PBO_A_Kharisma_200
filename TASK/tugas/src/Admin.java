@@ -1,27 +1,27 @@
-public class Admin {
-    String nama;
-    String password;
-
-    Admin(String iNama, String iPass){
-        this.nama = iNama;
-        this.password = iPass;
+public class Admin extends User{
+    public Admin(String userName, String userPass){
+        super(userName, userPass);
     }
 
-    void berhasil(){
-        System.out.println("LOGIN ADMIN BERHASIL");
-    }
-
-    void gagal(){
-        System.err.println("Login gagal, Username atau Password salah!!");
-    }
-
-    void login(){
-        final String adminPass = "Admin200";
-        final String passPass = "Password200";
-        if(nama.equals(adminPass) && password.equals(passPass)){
-            berhasil();
+    int scan;
+    @Override
+    public void login(){
+        final String correctUser = "Admin200";
+        final String correctPass = "Password200";
+        if(getUserName().equals(correctUser) && getUserPass().equals(correctPass)){
+            scan = 1;
         }else{
-            gagal();
+            scan = 0;
+        }
+
+    }
+
+    public void displayInfo(){
+        if(scan == 1){
+            System.out.println("LOGIN ADMIN BERHASIL");
+        }else {
+            System.err.println("LOGIN ADMIN GAGAL!!");
         }
     }
+
 }

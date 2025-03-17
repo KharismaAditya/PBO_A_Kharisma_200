@@ -1,4 +1,3 @@
-
 public class Student extends User{
     public Student(String userName, String userPass){
         super(userName, userPass);
@@ -16,7 +15,6 @@ public class Student extends User{
             scan = 0;
             displayInfo();
         }
-
     }
 
     public void displayInfo(){
@@ -25,7 +23,7 @@ public class Student extends User{
             System.out.println("Nama: " + getUserName());
             System.out.println("NIM: " + getUserPass());
         }else {
-            System.err.println("LOGIN ADMIN GAGAL!!");
+            System.err.println("LOGIN MAHASISWA GAGAL!!");
         }
     }
 

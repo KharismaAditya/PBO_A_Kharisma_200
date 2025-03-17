@@ -14,6 +14,7 @@ public class Enemy extends GameCharacter{
     public void attack(GameCharacter target){
         System.out.println(getName() + " attacks " + target.getName() + " using Snake bite!");
         target.setHealth(target.getHealth() - getAgentDamage());
+        setName("Viper1");
         target.info();
     }
 

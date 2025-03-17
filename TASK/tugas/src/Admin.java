@@ -1,4 +1,15 @@
 public class Admin extends User{
+    private String correctUser = "Admin200";
+    private String correctPass = "Password200";
+
+    public String getCorrectUser() {
+        return correctUser;
+    }
+
+    public String getCorrectPass(){
+        return correctPass;
+    }
+
     public Admin(String userName, String userPass){
         super(userName, userPass);
     }
@@ -6,12 +17,12 @@ public class Admin extends User{
     int scan;
     @Override
     public void login(){
-        final String correctUser = "Admin200";
-        final String correctPass = "Password200";
-        if(getUserName().equals(correctUser) && getUserPass().equals(correctPass)){
+        if(getUserName().equals(getCorrectUser()) && getUserPass().equals(getCorrectPass())){
             scan = 1;
+            displayInfo();
         }else{
             scan = 0;
+            displayInfo();
         }
 
     }

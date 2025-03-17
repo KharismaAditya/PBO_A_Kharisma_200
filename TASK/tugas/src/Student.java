@@ -1,4 +1,14 @@
 public class Student extends User{
+    private String correctUser = "Muhammad Kharisma Aditya Putra";
+    private String correctPass = "202410370110200";
+
+    public String getCorrectUser(){
+        return  correctUser;
+    }
+
+    public String getCorrectPass(){
+        return correctPass;
+    }
     public Student(String userName, String userPass){
         super(userName, userPass);
     }
@@ -6,9 +16,7 @@ public class Student extends User{
     int scan;
     @Override
     public void login(){
-        final String correctUser = "Muhammad Kharisma Aditya Putra";
-        final String correctPass = "202410370110200";
-        if(getUserName().equals(correctUser) && getUserPass().equals(correctPass)){
+        if(getUserName().equals(getCorrectUser()) && getUserPass().equals(getCorrectPass())){
             scan = 1;
             displayInfo();
         }else{

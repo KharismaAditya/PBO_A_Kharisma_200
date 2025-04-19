@@ -17,14 +17,8 @@ public class Admin extends User{
     int scan;
     @Override
     public void login(){
-        if(getUserName().equals(getCorrectUser()) && getUserPass().equals(getCorrectPass())){
-            scan = 1;
-            displayInfo();
-        }else{
-            scan = 0;
-            displayInfo();
-        }
-
+        scan = ((getUserName().equals(getCorrectUser()) && getUserPass().equals(getCorrectPass())) ? 0 : 1);
+        displayInfo();
     }
 
     public void displayInfo(){
@@ -34,5 +28,4 @@ public class Admin extends User{
             System.err.println("LOGIN ADMIN GAGAL!!");
         }
     }
-
 }

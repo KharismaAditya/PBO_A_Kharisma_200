@@ -21,23 +21,13 @@ public class BankAccount {
         System.out.println(ownerName + " menyetor Rp" + ammount + ". Saldo sekarang: Rp" + balance);
     }
 
-    String periksa(double ammount,double balance){
-        if(ammount > balance){
-            return "(GAGAL, Saldo tidak mencukupi)";
-        }
-        return  "(Berhasil)";
-    }
-
-    double tariktunai(double ammount, double balance){
-        if(ammount > balance){
-            return balance;
-        }
-        return balance - ammount;
-    }
 
     void withdrawMoney(double ammount){
-        balance = tariktunai(ammount, balance);
-        System.out.println(ownerName + " Menarik RP" + ammount + periksa(ammount, balance) + " Saldo sekarang: Rp" +balance);
-
+        if(ammount > balance){
+            System.out.println(ownerName + " mencoba menarik Rp" + ammount + " (GAGAL, saldo tidak mencukupi), Saldo sekarang: Rp" + balance);
+        }else{
+            balance -= ammount;
+            System.out.println(ownerName + " menarik Rp" + ammount + " (BERHASIL), Saldo sekarang: Rp" + balance);
+        }
     }
 }

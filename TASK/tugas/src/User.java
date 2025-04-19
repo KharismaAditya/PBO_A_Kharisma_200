@@ -1,6 +1,9 @@
+import java.util.Scanner;
+
 public class User {
     private String userName;
     private String userPass;
+
 
     public User(String userName, String userPass){
         this.userName = userName;

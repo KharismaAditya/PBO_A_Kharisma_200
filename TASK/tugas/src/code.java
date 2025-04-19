@@ -7,7 +7,7 @@ public class code {
 
         while(loop){
             System.out.println("Pilih login: ");
-            System.out.println("1. Admin\n2. Mahasiswa");
+            System.out.println("1. Admin\n2. Mahasiswa\n3. Keluar");
             System.out.print("Masukkan pilihan: ");String pilih = input.next();
             input.nextLine();
             switch (pilih){
@@ -16,6 +16,9 @@ public class code {
                     break;
                 case "2":
                     loop = studentinput(input);
+                    break;
+                case "3":
+                    loop = false;
                     break;
                 default:
                     System.out.println("INPUT YANG ANDA MASUKKAN TIDAK VALID, Harap masukkan Input yang benar!!");

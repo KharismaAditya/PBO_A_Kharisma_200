@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Student extends User{
     private String correctUser = "Muhammad Kharisma Aditya Putra";
     private String correctPass = "202410370110200";
@@ -16,13 +18,8 @@ public class Student extends User{
     int scan;
     @Override
     public void login(){
-        if(getUserName().equals(getCorrectUser()) && getUserPass().equals(getCorrectPass())){
-            scan = 1;
-            displayInfo();
-        }else{
-            scan = 0;
-            displayInfo();
-        }
+        scan = ((getUserName().equals(getCorrectUser())&& getUserPass().equals(getCorrectPass())) ? 0 : 1);
+        displayInfo();
     }
 
     public void displayInfo(){

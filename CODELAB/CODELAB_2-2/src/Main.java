@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args){
         BankAccount account1 = new BankAccount("202410370110200", "Kharisma Aditya", 50000);
-        BankAccount account2 = new BankAccount("202410370110200", "Firdaus", 40000);
+        BankAccount account2 = new BankAccount("202410370110039", "Firdaus", 40000);
 
         account1.displayinfo();
         account2.displayinfo();

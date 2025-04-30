@@ -10,6 +10,6 @@ public class nonfiksi extends buku{
 
     @Override
     public void displayInfo(){
-        System.out.println("Buku Non-Fiksi: " + judul + " oleh " + penulis + " (Bidang: " + bidang + ")");
+        System.out.println("Buku Non-Fiksi: " + judul + " oleh " + penulis + " ( Bidang: " + bidang + ")");
     }
 }

@@ -1,3 +1,6 @@
+package com.praktikum.main;
+
+import com.praktikum.users.*;
 import java.util.Scanner;
 
 public class code {
@@ -31,7 +34,7 @@ public class code {
     private static boolean admininput(Scanner input){
         System.out.print("Masukkan Username: "); String userNama = input.nextLine();
         System.out.print("Masukkan Password: "); String userPass = input.nextLine();
-        Admin user1 = new Admin(userNama, userPass);
+        User user1 = new Admin(userNama, userPass, input);
         user1.login();
         return false;
     }
@@ -39,7 +42,7 @@ public class code {
     private static boolean studentinput(Scanner input){
         System.out.print("Masukkan Nama: "); String userNama = input.nextLine();
         System.out.print("Masukkan NIM anda: "); String userPass = input.nextLine();
-        Student user2 = new Student(userNama, userPass);
+        User user2 = new Student(userNama, userPass, input);
         user2.login();
         return false;
     }

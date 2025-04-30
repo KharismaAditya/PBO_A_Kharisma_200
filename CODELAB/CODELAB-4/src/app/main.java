@@ -3,8 +3,8 @@ import perpustakaan.*;
 
 public class main {
     public static void main(String[] args){
-        buku buku1 = new fiksi("Madilog", "Tan Malaka", "Sejarah & Ilmu Pengetahuan");
-        buku buku2 = new nonfiksi("Hainuwele: Sang Putri Kelapa", "Lilis Hu", "Dongeng");
+        buku buku1 = new nonfiksi("Madilog", "Tan Malaka", "Sejarah & Ilmu Pengetahuan");
+        buku buku2 = new fiksi("I Have No Mouth and I Must Scream", "Harlan Ellison", "Novel");
 
         buku1.displayInfo();
         buku2.displayInfo();

@@ -6,5 +6,5 @@ public interface dataCollected {
     String[] lectureData = {"e00", "e24", "e39"};
     String[] lectureNama = {"Bakri", "Ilyas", "Galih"};
 
-    public abstract void loginsuccess();
+    void login();
 }

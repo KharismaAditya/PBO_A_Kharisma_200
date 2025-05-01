@@ -1,17 +1,15 @@
 package com.tugasakhir.actionmethod;
 
 import java.util.Scanner;
-import com.tugasakhir.bookdata.accessible.*;
 
-public class mhsAction extends mainmethod{
+public class lcrAction extends mainmethod {
     Scanner input = new Scanner(System.in);
-    userAccessibleProgram perpus = new userAccessibleProgram();
 
     @Override
     public void displayUser(String ID, String nama) {
         System.out.println("NAMA : " + nama);
         System.out.println("FITUR PERPUSTAKAAN");
-        System.out.println("1. Pinjam Buku\n2. Kembalikan Buku");
+        System.out.println("1. Pinjam Buku\n2. Kembalikan Buku\n3. Ajukan Jurnal");
         System.out.print("PILIHAN: ");String choice = input.next();
         switch (choice){
             case "1":
@@ -32,9 +30,6 @@ public class mhsAction extends mainmethod{
     @Override
     public void action1Buku(String ID) {
         System.out.println(">>Fitur Pinjam Buku<<");
-        perpus.displayBook();
-        System.out.print("Masukkan Judul Buku yang ingin dipinjam: "); String judulbuku = input.next();
-        perpus.borrowBook(judulbuku);
     }
 
     @Override
@@ -44,6 +39,6 @@ public class mhsAction extends mainmethod{
 
     @Override
     public void action3Buku(String ID) {
-        System.out.println(">>COMING SOON<<");
+        System.out.println(">>Fitur Ajukan Jurnal<<");
     }
 }

@@ -3,10 +3,10 @@ import com.praktikum.actions.*;
 
 import java.util.Scanner;
 
-public class Student extends User {
+public class Student extends User implements MahasiswaActions{
     protected String correctUser = "Muhammad Kharisma Aditya Putra";
     protected String correctPass = "202410370110200";
-    String choice;
+    String choice, namaBarang, desBarang, lokTerakhir;
     boolean loop = true;
 
     public String getCorrectUser(){
@@ -41,18 +41,16 @@ public class Student extends User {
 
     @Override
     public void displayAppMenu() {
-        MahasiswaTemu mhs = new MahasiswaTemu();
-
         System.out.println(" -- Menu Pilihan --");
         System.out.println("1. Laporkan barang temuan\n2. Lihat daftar laporan\n0. Logout");
         System.out.print("Masukkan Pilihan anda: ");
         choice = input.next();
         switch (choice) {
             case "1":
-                mhs.reportItem();
+                reportItem();
                 break;
             case "2":
-                mhs.viewReportedItems();
+                viewReportedItems();
                 break;
             case "0":
                 loop = false;
@@ -60,5 +58,29 @@ public class Student extends User {
             default:
                 System.err.println("Masukkan input yang benar");
         }
+    }
+
+    void tampilLaporan(){
+        System.out.println("LAPORAN");
+        System.out.println("Barang : " + namaBarang);
+        System.out.println("Deskripsi barang : " + desBarang);
+        System.out.println("Lokasi ditemukan : " + lokTerakhir);
+    }
+
+    @Override
+    public void reportItem() {
+        System.out.println("-- LAPORAN BARANG HILANG --");
+        System.out.print("Masukkan Nama Barang: "); namaBarang = input.next();
+        System.out.print("Masukkan Deskripsi Barang: "); desBarang = input.next();
+        System.out.print("Lokasi ditemukan: "); lokTerakhir = input.next();
+
+        System.out.println("-- LAPORAN TELAH DITERIMA --");
+        tampilLaporan();
+    }
+
+    @Override
+    public void viewReportedItems() {
+        System.out.println(">> Fitur Lihat Laporan Belum tersedia");
+        System.out.println();
     }
 }

@@ -1,7 +1,5 @@
 package com.praktikum.users;
 
-import com.praktikum.actions.AdminSetting;
-
 import java.util.Scanner;
 
 public abstract class User {

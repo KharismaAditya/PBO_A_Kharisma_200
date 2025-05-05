@@ -3,7 +3,7 @@ import com.praktikum.actions.*;
 
 import java.util.Scanner;
 
-public class Admin extends User {
+public class Admin extends User implements AdminActions{
     protected String correctUser = "Admin200";
     protected String correctPass = "Password200";
     String choice;
@@ -40,18 +40,16 @@ public class Admin extends User {
 
     @Override
     public void displayAppMenu() {
-        AdminSetting admin = new AdminSetting();
-
         while(loop){
             System.out.println(" -- Menu Pilihan --");
             System.out.println("1. Kelola Laporan Mahasiswa\n2. Kelola Data Mahasiswa\n0. Logout");
             System.out.print("Masukkan Pilihan anda: "); choice = input.next();
             switch (choice){
                 case "1":
-                    admin.manageUsers();
+                    manageUsers();
                     break;
                 case "2":
-                    admin.manageItems();
+                    manageItems();
                     break;
                 case "0":
                     loop = false;
@@ -61,5 +59,17 @@ public class Admin extends User {
                     break;
             }
         }
+    }
+
+    @Override
+    public void manageItems() {
+        System.out.println(">> Fitur Kelola Barang Belum Tersedia <<");
+        System.out.println();
+    }
+
+    @Override
+    public void manageUsers() {
+        System.out.println(">> Fitur Kelola Mahasiswa Belum Tersedia <<");
+        System.out.println();
     }
 }

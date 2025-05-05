@@ -1,9 +1,11 @@
 package com.tugasakhir.actionmethod;
 
 import java.util.Scanner;
+import com.tugasakhir.bookdata.accessible.*;
 
 public class lcrAction extends mainmethod {
     Scanner input = new Scanner(System.in);
+    userAccessibleProgram perpus = new userAccessibleProgram();
 
     @Override
     public void displayUser(String ID, String nama) {
@@ -30,6 +32,9 @@ public class lcrAction extends mainmethod {
     @Override
     public void action1Buku(String ID) {
         System.out.println(">>Fitur Pinjam Buku<<");
+        perpus.displayBook();
+        System.out.print("Masukkan judul buku yang ingin dipinjam: "); String judul = input.next();
+        perpus.borrowBook(judul);
     }
 
     @Override

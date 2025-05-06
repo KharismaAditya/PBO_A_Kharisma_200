@@ -1,14 +1,16 @@
 package com.tugasakhir.actionmethod;
+import com.tugasakhir.bookdata.accessible.readBook.userReadBook;
 
 import java.util.Scanner;
-import com.tugasakhir.bookdata.accessible.*;
 
 public class lcrAction extends mainmethod {
     Scanner input = new Scanner(System.in);
-    userAccessibleProgram perpus = new userAccessibleProgram();
+    userReadBook perpus = new userReadBook();
 
     @Override
     public void displayUser(String ID, String nama) {
+        System.out.println();
+        System.out.println("== PERPUSTAKAAN ==");
         System.out.println("NAMA : " + nama);
         System.out.println("FITUR PERPUSTAKAAN");
         System.out.println("1. Pinjam Buku\n2. Kembalikan Buku\n3. Ajukan Jurnal");
@@ -32,9 +34,9 @@ public class lcrAction extends mainmethod {
     @Override
     public void action1Buku(String ID) {
         System.out.println(">>Fitur Pinjam Buku<<");
-        perpus.displayBook();
-        System.out.print("Masukkan judul buku yang ingin dipinjam: "); String judul = input.next();
-        perpus.borrowBook(judul);
+        perpus.listBook();
+        System.out.println("Masukkan judul buku yang ingin dipinjam: "); String judul = input.next();
+        perpus.pinjamBook(judul);
     }
 
     @Override

@@ -1,10 +1,11 @@
 package com.tugasakhir.adminAction;
 import com.tugasakhir.adminAction.userDataManage.*;
-
+import com.tugasakhir.bookdata.accessible.manageBook.adminMySql;
 import java.util.Scanner;
 
 public class admAction {
     Scanner input = new Scanner(System.in);
+    adminMySql admin = new adminMySql();
 
     public void display(){
         System.out.println();
@@ -14,9 +15,7 @@ public class admAction {
         System.out.print("Pilihan: "); String choice = input.next();
         switch (choice){
             case "1":
-                System.out.println("-- TAMBAH BUKU --");
-                System.out.print("Masukkan Judul buku: "); String judul = input.next();
-                System.out.print("Masukkan nama Penulis buku: "); String penulis = input.next();
+                admin.tambahBuku();
                 break;
             case "2":
                 //hapus buku//

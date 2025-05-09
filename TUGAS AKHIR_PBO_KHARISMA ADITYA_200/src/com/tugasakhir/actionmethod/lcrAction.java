@@ -1,11 +1,11 @@
 package com.tugasakhir.actionmethod;
-import com.tugasakhir.bookdata.accessible.readBook.userReadBook;
+import com.tugasakhir.bookdata.accessible.readBook.mySql;
 
 import java.util.Scanner;
 
 public class lcrAction extends mainmethod {
     Scanner input = new Scanner(System.in);
-    userReadBook perpus = new userReadBook();
+    mySql perpus = new mySql();
 
     @Override
     public void displayUser(String ID, String nama) {
@@ -34,9 +34,9 @@ public class lcrAction extends mainmethod {
     @Override
     public void action1Buku(String ID) {
         System.out.println(">>Fitur Pinjam Buku<<");
-        perpus.listBook();
-        System.out.println("Masukkan judul buku yang ingin dipinjam: "); String judul = input.next();
-        perpus.pinjamBook(judul);
+        perpus.displayListBook();
+        System.out.print("Masukkan judul buku yang ingin dipinjam: "); String id = input.next();
+        perpus.pinjamBuku(id);
     }
 
     @Override

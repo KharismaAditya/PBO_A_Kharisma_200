@@ -18,7 +18,7 @@ public class admAction {
                 admin.tambahBuku();
                 break;
             case "2":
-                //hapus buku//
+                admin.hapusBuku();
                 break;
             case "3":
                 studentsAdd mhs = new studentsAdd();

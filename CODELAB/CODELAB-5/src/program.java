@@ -18,7 +18,8 @@ public class program {
     public void tampilBarang(ArrayList<Barang> daftarBarang){
         if(daftarBarang.isEmpty()){
             System.out.println("Stok Barang Kosong");
-        }else{
+        }else{;
+            System.out.println();
             System.out.println("DAFTAR BARANG: ");
             for(int i = 0; i < daftarBarang.size(); i++){
                 Barang barang = daftarBarang.get(i);

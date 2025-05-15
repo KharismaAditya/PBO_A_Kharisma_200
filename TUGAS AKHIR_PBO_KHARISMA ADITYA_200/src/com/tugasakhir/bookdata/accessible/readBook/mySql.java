@@ -6,12 +6,11 @@ import com.tugasakhir.bookdata.accessible.databaseConnect;
 public class mySql {
     databaseConnect db = new databaseConnect();
 
-    public void displayListBook(){
+    public void displayListBook(String sql){
         try{
             Connection conn = db.getConnection();
 
             Statement statement = conn.createStatement();
-            String sql = "SELECT * FROM buku";
             ResultSet rs = statement.executeQuery(sql);
 
             while(rs.next()){
@@ -36,9 +35,9 @@ public class mySql {
         }
     }
 
-    public void pinjamBuku(String idBook){
+    public void pinjamBuku(String idBook, String selectQuery, String borrowQuary){
         try(Connection conn = db.getConnection()){
-            String cekStok = "SELECT stok FROM buku WHERE idBuku = ?";
+            String cekStok = selectQuery;
             PreparedStatement cetStmt = conn.prepareStatement(cekStok);
             cetStmt.setString(1, idBook);
             ResultSet rs = cetStmt.executeQuery();
@@ -46,7 +45,7 @@ public class mySql {
             if(rs.next()){
                 int stok = rs.getInt("stok");
                 if(stok > 0){
-                    String updQuery = "UPDATE buku SET stok = stok - 1 WHERE idbuku = ?";
+                    String updQuery = borrowQuary;
                     PreparedStatement updStmt = conn.prepareStatement(updQuery);
                     updStmt.setString(1, idBook);
                     int rowUpd = updStmt.executeUpdate();

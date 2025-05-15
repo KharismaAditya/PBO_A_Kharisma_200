@@ -1,4 +1,6 @@
 package com.tugasakhir.actionmethod;
+import com.tugasakhir.bookdata.accessible.queryManage.borrowQuery;
+import com.tugasakhir.bookdata.accessible.queryManage.displayQuery;
 import com.tugasakhir.bookdata.accessible.readBook.mySql;
 
 import java.util.Scanner;
@@ -6,6 +8,8 @@ import java.util.Scanner;
 public class lcrAction extends mainmethod {
     Scanner input = new Scanner(System.in);
     mySql perpus = new mySql();
+    displayQuery display = new displayQuery();
+    borrowQuery borrow = new borrowQuery();
 
     @Override
     public void displayUser(String ID, String nama) {
@@ -33,10 +37,23 @@ public class lcrAction extends mainmethod {
 
     @Override
     public void action1Buku(String ID) {
-        System.out.println(">>Fitur Pinjam Buku<<");
-        perpus.displayListBook();
-        System.out.print("Masukkan judul buku yang ingin dipinjam: "); String id = input.next();
-        perpus.pinjamBuku(id);
+        boolean loop = true; int choice = 0;
+        while (loop){
+            System.out.println("JENIS BUKU: ");
+            System.out.println("1. Informatika\n2.Teknik Mesin");
+            System.out.print("Pilihan: ");choice = input.nextInt();
+            if(choice <= display.displayLength()){
+                loop = false;
+                input.nextLine();
+            }else {
+                System.err.println("PILIHAN ANDA TIDAK TERSEDIA");
+            }
+        }
+        String selectBorrow = borrow.borrowConnect(choice - 1);
+        String queryBorrow = borrow.queryBorrow(choice - 1);
+        perpus.displayListBook(display.databaseDisplay(choice - 1));
+        System.out.println("Masukkan ID buku: "); String idBuku = input.next();
+        perpus.pinjamBuku(idBuku, selectBorrow, queryBorrow);
     }
 
     @Override

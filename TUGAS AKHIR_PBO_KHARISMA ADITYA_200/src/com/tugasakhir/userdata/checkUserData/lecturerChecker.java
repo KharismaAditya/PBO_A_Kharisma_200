@@ -20,7 +20,7 @@ public class lecturerChecker implements checkData{
 
     @Override
     public void dataReader(String idLct) {
-        String file = "D:/ADIT/MAK AKU KULIAH/SMT 2/PBO/PBO_A_KHARISMA_200/TUGAS AKHIR_PBO_KHARISMA ADITYA_200/src/com/tugasakhir/userdata/lecturerData.txt";
+        String file = "D:/ADIT/MAK AKU KULIAH/SMT 2/PBO/PBO_A_KHARISMA_200/TUGAS AKHIR_PBO_KHARISMA ADITYA_200/src/com/tugasakhir/userdata/LecturerData.txt";
         boolean found = false;
 
         try(BufferedReader reader = new BufferedReader(new FileReader(file))){

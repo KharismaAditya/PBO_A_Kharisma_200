@@ -1,10 +1,14 @@
 package com.tugasakhir.actionmethod;
 import com.tugasakhir.bookdata.accessible.readBook.mySql;
+import com.tugasakhir.bookdata.accessible.queryManage.*;
 import java.util.Scanner;
 
 public class mhsAction extends mainmethod{
     Scanner input = new Scanner(System.in);
     mySql perpus = new mySql();
+    displayQuery display = new displayQuery();
+    borrowQuery borrow = new borrowQuery();
+
 
     @Override
     public void displayUser(String ID, String nama) {
@@ -32,11 +36,22 @@ public class mhsAction extends mainmethod{
 
     @Override
     public void action1Buku(String ID) {
-        System.out.println(">>Fitur Pinjam Buku<<");
-        perpus.displayListBook();
-        System.out.print("Masukkan Id buku yang ingin dipinjam: "); String id = input.next();
-        perpus.pinjamBuku(id);
-
+        boolean loop = true; int choice = 0;
+        String sql = "";
+        while (loop){
+            System.out.println("JENIS BUKU: ");
+            System.out.println("1. Informatika\n2.Teknik Mesin");
+            System.out.print("Pilihan: ");choice = input.nextInt();
+            if(choice <= display.displayLength()){
+                loop = false;
+                input.nextLine();
+            }else {
+                System.err.println("PILIHAN ANDA TIDAK TERSEDIA");
+            }
+        }
+        perpus.displayListBook(display.databaseDisplay(choice - 1));
+        System.out.print("Masukkan ID buku: "); String idBuku = input.next();
+        perpus.pinjamBuku(idBuku, borrow.borrowConnect(choice - 1), borrow.queryBorrow(choice - 1));
     }
 
     @Override

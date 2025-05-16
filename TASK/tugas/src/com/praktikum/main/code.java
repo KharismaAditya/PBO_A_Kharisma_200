@@ -1,12 +1,17 @@
 package com.praktikum.main;
 
-import com.praktikum.users.*;
+import com.praktikum.data.*;
+import com.praktikum.usersAttributs.*;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class code {
     public static void main(String[] args){
+        dataCollected data = new dataCollected();
         Scanner input = new Scanner(System.in);
         boolean loop = true;
+
 
         while(loop){
             System.out.println("Pilih login: ");
@@ -32,18 +37,22 @@ public class code {
     }
 
     private static boolean admininput(Scanner input){
-        System.out.print("Masukkan Username: "); String userNama = input.nextLine();
-        System.out.print("Masukkan Password: "); String userPass = input.nextLine();
-        User user1 = new Admin(userNama, userPass, input);
-        user1.login();
+        ArrayList<Student> stdList = new ArrayList<>();
+        ArrayList<Item> itemList = new ArrayList<>();
+        System.out.print("Masukkan Username: "); String userNama = input.next();
+        System.out.print("Masukkan Password: "); String userPass = input.next();
+        adminLogin admin = new adminLogin(userNama, userPass, stdList, itemList);
+        admin.login();
         return false;
     }
 
     private static boolean studentinput(Scanner input){
-        System.out.print("Masukkan Nama: "); String userNama = input.nextLine();
-        System.out.print("Masukkan NIM anda: "); String userPass = input.nextLine();
-        User user2 = new Student(userNama, userPass, input);
-        user2.login();
+        ArrayList<Student> stdList = new ArrayList<>();
+        ArrayList<Item> itemList = new ArrayList<>();
+        System.out.print("Masukkan Nama: "); String userNama = input.next();
+        System.out.print("Masukkan NIM anda: "); String userPass = input.next();
+        userLogin user = new userLogin(userNama, userPass, stdList, itemList);
+        user.login();
         return false;
     }
 }

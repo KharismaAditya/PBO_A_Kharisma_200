@@ -15,13 +15,13 @@ public class Barang {
         return Stok;
     }
 
-    public void setStok(){
+    public void setStok(int Stok){
         this.Stok = Stok;
     }
 
     public void kurangiStok(int jumlah) throws StokTIdakCukupException{
         if(jumlah > Stok){
-            throw new StokTIdakCukupException("Stok tidak cukup untuk dikurangi sebanyak " + jumlah);
+            throw new StokTIdakCukupException();
         }
         Stok -= jumlah;
     }

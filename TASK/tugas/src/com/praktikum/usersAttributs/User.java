@@ -1,17 +1,13 @@
-package com.praktikum.users;
-
-import java.util.Scanner;
+package com.praktikum.usersAttributs;
 
 public abstract class User {
     protected String userName;
     protected String userPass;
-    protected Scanner input;
 
 
-    public User(String userName, String userPass, Scanner input){
+    public User(String userName, String userPass){
         this.userName = userName;
         this.userPass = userPass;
-        this.input = input;
     }
 
     public String getUserName(){

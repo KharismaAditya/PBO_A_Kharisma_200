@@ -23,7 +23,7 @@ public class Item {
     }
 
     public void setStatus(String Status){
-        this.status = status;
+        this.status = Status;
     }
 
     public Item(String itemName, String description, String location){

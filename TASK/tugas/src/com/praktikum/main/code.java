@@ -8,7 +8,11 @@ import java.util.Scanner;
 
 public class code {
     public static void main(String[] args){
+        ArrayList<Student> stdList = new ArrayList<>();
+        ArrayList<Item> itemList = new ArrayList<>();
+
         dataCollected data = new dataCollected();
+        data.dataItemDefault(itemList);
         Scanner input = new Scanner(System.in);
         boolean loop = true;
 
@@ -20,10 +24,10 @@ public class code {
             input.nextLine();
             switch (pilih){
                 case "1":
-                    loop = admininput(input);
+                    loop = admininput(input, itemList, stdList);
                     break;
                 case "2":
-                    loop = studentinput(input);
+                    loop = studentinput(input, itemList, stdList);
                     break;
                 case "3":
                     loop = false;
@@ -36,23 +40,31 @@ public class code {
         input.close();
     }
 
-    private static boolean admininput(Scanner input){
-        ArrayList<Student> stdList = new ArrayList<>();
-        ArrayList<Item> itemList = new ArrayList<>();
+    private static boolean admininput(Scanner input, ArrayList<Item> itemList, ArrayList<Student> stdList){
         System.out.print("Masukkan Username: "); String userNama = input.next();
         System.out.print("Masukkan Password: "); String userPass = input.next();
         adminLogin admin = new adminLogin(userNama, userPass, stdList, itemList);
         admin.login();
-        return false;
+        if(admin.isLoggedIn()){
+            admin.displayInfo();
+            admin.start();
+        }else{
+            admin.displayInfo();
+        }
+        return true;
     }
 
-    private static boolean studentinput(Scanner input){
-        ArrayList<Student> stdList = new ArrayList<>();
-        ArrayList<Item> itemList = new ArrayList<>();
+    private static boolean studentinput(Scanner input, ArrayList<Item> itemList, ArrayList<Student> stdList){
         System.out.print("Masukkan Nama: "); String userNama = input.next();
         System.out.print("Masukkan NIM anda: "); String userPass = input.next();
         userLogin user = new userLogin(userNama, userPass, stdList, itemList);
         user.login();
-        return false;
+        if(user.isLoggedIn()){
+            user.displayInfo();
+            user.start();
+        }else{
+            user.displayInfo();
+        }
+        return true;
     }
 }

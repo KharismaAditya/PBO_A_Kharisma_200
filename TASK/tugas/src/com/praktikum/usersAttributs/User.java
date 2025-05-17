@@ -17,7 +17,7 @@ public abstract class User {
         return userPass;
     }
 
-    public abstract void login();
+    public abstract boolean login();
     public abstract void displayInfo();
     public abstract void displayAppMenu();
 }

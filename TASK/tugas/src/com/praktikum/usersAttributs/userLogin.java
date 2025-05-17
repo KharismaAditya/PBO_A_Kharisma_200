@@ -21,28 +21,35 @@ public class userLogin extends User implements MahasiswaActions{
 
         dataCollected data = new dataCollected();
         data.dataMahasiswaDefault(stdList);
-        data.dataItemDefault(itemList);
+    }
+
+    public void start(){
+        displayAppMenu();
+    }
+
+    public boolean isLoggedIn(){
+        return scan == 1;
     }
 
     @Override
-    public void login() {
+    public boolean login() {
         scan = 0;
         for (Student student : stdList) {
             if (student.getNama().equals(getUserName()) && student.getNIM().equals(getUserPass())) {
                 scan = 1;
+                return true;
             }
         }
-        displayInfo();
+        return false;
     }
 
     @Override
     public void displayInfo() {
-        if (scan == 1) {
+        if (login()) {
             System.out.println("LOGIN MAHASISWA BERHASIL");
             System.out.println("Nama: " + getUserName());
             System.out.println("NIM: " + getUserPass());
             System.out.println();
-            displayAppMenu();
         } else {
             System.err.println("LOGIN MAHASISWA GAGAL!!");
         }

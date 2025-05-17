@@ -8,8 +8,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class adminLogin extends User implements AdminActions {
-    private ArrayList<Student> stdList;
-    private ArrayList<Item> itemList;
+    ArrayList<Student> stdList;
+    ArrayList<Item> itemList;
     protected String correctAdmin = "Admin200";
     protected String correctPass = "Password200";
 
@@ -24,8 +24,11 @@ public class adminLogin extends User implements AdminActions {
 
         dataCollected data = new dataCollected();
         data.dataMahasiswaDefault(stdList);
-        data.dataItemDefault(itemList);
 
+    }
+
+    public boolean isLoggedIn(){
+        return scan == 1;
     }
 
     public void start(){
@@ -33,17 +36,19 @@ public class adminLogin extends User implements AdminActions {
     }
 
     @Override
-    public void login() {
+    public boolean login() {
         scan = (((getUserName().equals(correctAdmin) && getUserPass().equals(correctPass)) ? 1 : 0));
-        displayInfo();
+        if(scan == 1){
+            return true;
+        }
+        return false;
     }
 
     @Override
     public void displayInfo() {
-        if(scan == 1){
+        if(login()){
             System.out.println("LOGIN ADMIN BERHASIL");
             System.out.println();
-            displayAppMenu();
         }else {
             System.err.println("LOGIN ADMIN GAGAL!!");
         }

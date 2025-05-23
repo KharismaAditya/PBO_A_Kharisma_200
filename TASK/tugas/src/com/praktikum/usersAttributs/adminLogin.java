@@ -31,10 +31,6 @@ public class adminLogin extends User implements AdminActions {
         return scan == 1;
     }
 
-    public void start(){
-        displayAppMenu();
-    }
-
     @Override
     public boolean login() {
         scan = (((getUserName().equals(correctAdmin) && getUserPass().equals(correctPass)) ? 1 : 0));
@@ -73,7 +69,6 @@ public class adminLogin extends User implements AdminActions {
                         break;
                     case 0:
                         loop = false;
-
                         break;
                     default:
                         System.err.println("Masukkan input yang benar");
@@ -99,6 +94,7 @@ public class adminLogin extends User implements AdminActions {
                 if(item.getStatus().equalsIgnoreCase("Founded")){
                     item.setStatus("Reported");
                     System.out.println("STATUS barang berhasil diubah");
+                    System.out.println();
                 }else{
                     System.out.println("Barang sudah berstatus 'Reported'");
                 }
@@ -128,6 +124,7 @@ public class adminLogin extends User implements AdminActions {
         stdList.add(mhsBaru);
 
         System.out.println("SUKSES: Mahasiswa berhasil ditambahkan");
+        System.out.println();
     }
 
     public void tampilMahasiswa(){
@@ -137,6 +134,7 @@ public class adminLogin extends User implements AdminActions {
             Student mhs = stdList.get(i);
             System.out.println(i + ". Nama: " + mhs.getNama() + " | NIM: " + mhs.getNIM());
         }
+        System.out.println();
     }
 
     public void tampilBarang(){

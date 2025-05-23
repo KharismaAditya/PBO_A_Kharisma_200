@@ -11,6 +11,5 @@ public class dataCollected {
     public void dataMahasiswaDefault(ArrayList<Student> stdList){
         stdList.add(new Student("Muhammad Kharisma Aditya Putra", "202410370110200"));
         stdList.add(new Student("Firdaus Firmansyah Emha", "202410370110039"));
-        stdList.add(new Student("test", "1234"));
     }
 }

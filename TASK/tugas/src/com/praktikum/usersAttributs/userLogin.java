@@ -23,10 +23,6 @@ public class userLogin extends User implements MahasiswaActions{
         data.dataMahasiswaDefault(stdList);
     }
 
-    public void start(){
-        displayAppMenu();
-    }
-
     public boolean isLoggedIn(){
         return scan == 1;
     }
@@ -92,6 +88,7 @@ public class userLogin extends User implements MahasiswaActions{
         System.out.print("Deskripsi barang: ");String desk = input.nextLine();
         System.out.print("Lokasi terakhir: ");String lokter = input.nextLine();
         itemList.add(new Item(nama, desk, lokter));
+        System.out.println("ITEM BERHASIL DITAMBAHKAN\n");
     }
 
     @Override

@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class code {
     public static void main(String[] args){
+        ArrayList<Boolean> booleans = new ArrayList<>();
         ArrayList<Student> stdList = new ArrayList<>();
         ArrayList<Item> itemList = new ArrayList<>();
 
@@ -18,23 +19,27 @@ public class code {
 
 
         while(loop){
-            System.out.println("Pilih login: ");
-            System.out.println("1. Admin\n2. Mahasiswa\n3. Keluar");
-            System.out.print("Masukkan pilihan: ");String pilih = input.next();
-            input.nextLine();
-            switch (pilih){
-                case "1":
-                    loop = admininput(input, itemList, stdList);
-                    break;
-                case "2":
-                    loop = studentinput(input, itemList, stdList);
-                    break;
-                case "3":
-                    loop = false;
-                    break;
-                default:
-                    System.out.println("INPUT YANG ANDA MASUKKAN TIDAK VALID, Harap masukkan Input yang benar!!");
-                    System.out.print("\n");
+            try{
+                System.out.println("Pilih login: ");
+                System.out.println("1. Admin\n2. Mahasiswa\n3. Keluar");
+                System.out.print("Masukkan pilihan: ");int pilih = input.nextInt();
+                input.nextLine();
+                switch (pilih){
+                    case 1:
+                        loop = admininput(input, itemList, stdList);
+                        break;
+                    case 2:
+                        loop = studentinput(input, itemList, stdList);
+                        break;
+                    case 3:
+                        loop = false;
+                        break;
+                    default:
+                        System.out.println("INPUT YANG ANDA MASUKKAN TIDAK VALID, Harap masukkan Input yang benar!!");
+                        System.out.print("\n");
+                }
+            }catch (Exception e){
+                System.out.println("ERROR: " + e.getMessage());
             }
         }
         input.close();
@@ -47,7 +52,7 @@ public class code {
         admin.login();
         if(admin.isLoggedIn()){
             admin.displayInfo();
-            admin.start();
+            admin.displayAppMenu();
         }else{
             admin.displayInfo();
         }
@@ -55,13 +60,13 @@ public class code {
     }
 
     private static boolean studentinput(Scanner input, ArrayList<Item> itemList, ArrayList<Student> stdList){
-        System.out.print("Masukkan Nama: "); String userNama = input.next();
+        System.out.print("Masukkan Nama: "); String userNama = input.nextLine();
         System.out.print("Masukkan NIM anda: "); String userPass = input.next();
         userLogin user = new userLogin(userNama, userPass, stdList, itemList);
         user.login();
         if(user.isLoggedIn()){
             user.displayInfo();
-            user.start();
+            user.displayAppMenu();
         }else{
             user.displayInfo();
         }

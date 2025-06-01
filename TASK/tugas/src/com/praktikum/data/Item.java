@@ -6,6 +6,7 @@ public class Item {
     private String location;
     private String status;
 
+
     public String getItemName() {
         return itemName;
     }

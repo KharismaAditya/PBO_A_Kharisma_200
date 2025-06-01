@@ -15,12 +15,13 @@ import java.util.Random;
 
 public class mainCode extends Application {
     int percobaan = 1;
-    int benar = 0;
+    boolean benar = true;
+
     Random rand = new Random();
     int numRand = rand.nextInt(10);
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage){
 
 
         stage.setTitle("Tebak Angka!");
@@ -35,6 +36,7 @@ public class mainCode extends Application {
 
         Label textLabel = new Label();
         textLabel.setTextFill(Color.BLACK);
+        textLabel.setFont(Font.font("Tahoma", 14));
 
         TextField numField = new TextField();
         numField.setPromptText("Enter number");
@@ -59,7 +61,7 @@ public class mainCode extends Application {
         tebak.setOnAction(e -> {
             String input = numField.getText();
             int angka = Integer.parseInt(input);
-            if(benar == 0){
+            if(benar){
                 try {
                     if(angka == numRand){
                         textLabel.setText("✔ Tebakan benar");
@@ -68,17 +70,19 @@ public class mainCode extends Application {
                         tebak.setStyle("-fx-background-color: #60B5FF; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 3; -fx-background-radius: 5;");
                         tebak.setOnMouseExited(ex -> tebak.setStyle("-fx-background-color: #60B5FF; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 3; -fx-background-radius: 5;"));
                         tebak.setOnMouseEntered(ex -> tebak.setStyle("-fx-background-color: #AFDDFF; -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 3; -fx-background-radius: 5;"));
-                        benar = 1;
+                        benar = false;
                     }
 
                     if(angka < numRand){
                         textLabel.setText("✖ Terlalu kecil");
                         textLabel.setTextFill(Color.ORANGE);
+                        numField.clear();
                     }
 
                     if(angka > numRand){
                         textLabel.setText("✖ Terlalu besar");
                         textLabel.setTextFill(Color.ORANGE);
+                        numField.clear();
                     }
                 }catch (NumberFormatException ex){
                     textLabel.setTextFill(Color.RED);
@@ -87,17 +91,20 @@ public class mainCode extends Application {
 
                 jumlahPer.setText("Jumlah percobaan: " + percobaan);
                 percobaan++;
+
             }else{
                 numField.clear();
-                textLabel.setText("");
                 tebak.setText("Coba tebak!");
                 tebak.setStyle("-fx-background-color: #FF9149; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 3; -fx-background-radius: 5;");
                 tebak.setOnMouseExited(ex -> tebak.setStyle("-fx-background-color: #FF9149; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 3; -fx-background-radius: 5;"));
                 tebak.setOnMouseEntered(ex -> tebak.setStyle("-fx-background-color: #FFECDB; -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 3; -fx-background-radius: 5;"));
+
+                textLabel.setText("");
                 numRand = new Random().nextInt(10);
-                percobaan = 1;
-                benar = 0;
                 jumlahPer.setText("");
+
+                benar = true;
+                percobaan = 1;
             }
         });
 

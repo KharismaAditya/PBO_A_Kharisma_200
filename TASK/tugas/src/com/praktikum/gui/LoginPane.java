@@ -7,8 +7,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import com.praktikum.data.*;
@@ -17,9 +15,7 @@ import java.util.ArrayList;
 
 
 public class LoginPane extends Application {
-    ArrayList<Student> stdlist = new ArrayList<>();
-    dataCollected data = new dataCollected();
-
+    ArrayList<Student> stdlist = ItemStorage.stdList;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -86,8 +82,7 @@ public class LoginPane extends Application {
     }
 
     public boolean statusLogin(String user, String pass){
-        data.dataMahasiswaDefault(stdlist);
-        for(Student student : stdlist){
+        for(Student student : ItemStorage.stdList){
             if(user.equals(student.getNama()) && pass.equals(student.getNIM())){
                 return true;
             }
@@ -96,6 +91,11 @@ public class LoginPane extends Application {
     }
 
     public static void main(String[] args){
+        if (ItemStorage.stdList.isEmpty()) {
+            dataCollected data = new dataCollected();
+            data.dataMahasiswaDefault(ItemStorage.stdList);
+        }
+
         launch(args);
     }
 }

@@ -1,6 +1,7 @@
 package com.praktikum.gui;
 
 import com.praktikum.data.*;
+
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,22 +18,24 @@ import java.util.ArrayList;
 public class adminDashboard extends Application {
     ItemStorage itStor = new ItemStorage();
     ArrayList<Item> itemList = new ArrayList<>();
-    ArrayList<Student> stdList = new ArrayList<>();
+    ArrayList<Student> stdList;
 
     public ObservableList<Item> masterDataItem = itStor.getItems();
     public ObservableList<Student> masterDataStudent = FXCollections.observableArrayList();
 
-
     @Override
     public void start(Stage stage) throws Exception {
-        dataCollected data = new dataCollected();
-        data.dataMahasiswaDefault(stdList);
+        stdList = ItemStorage.stdList;
+        if (stdList.isEmpty()) {
+            dataCollected data = new dataCollected();
+            data.dataMahasiswaDefault(stdList);
+        }
         masterDataStudent.setAll(stdList);
 
             stage.setTitle("Lost and found Campus");
             VBox root = new VBox(20);
             root.setPadding(new Insets(40));
-            root.setAlignment(Pos.TOP_CENTER);
+            root.setAlignment(Pos.TOP_LEFT);
 
             Label adminLabel = new Label("Halo, Administrator admin");
 
@@ -57,7 +60,7 @@ public class adminDashboard extends Application {
             statusCol.setCellValueFactory(new PropertyValueFactory<>("status"));
             statusCol.setPrefWidth(100);
 
-            TableColumn<Item, Void> setStatCol = new TableColumn<>("Status");
+            TableColumn<Item, Void> setStatCol = new TableColumn<>("Action");
             setStatCol.setPrefWidth(100);
             setStatCol.setCellFactory(e -> new TableCell<>() {
                 private final Button clBtn = new Button("CLAIMED");
@@ -124,8 +127,9 @@ public class adminDashboard extends Application {
 
                         confirm.showAndWait().ifPresent(response -> {
                             if (response == ButtonType.OK) {
-                                masterDataStudent.remove(student);
-                                mhsTable.refresh(); // refresh tabel
+                                ItemStorage.stdList.remove(student);
+                                masterDataStudent.setAll(ItemStorage.stdList);
+                                mhsTable.refresh();
                             }
                         });
                     });
@@ -169,7 +173,8 @@ public class adminDashboard extends Application {
                     alert.showAndWait();
                 } else {
                     Student newStudent = new Student(nama, nim);
-                    masterDataStudent.add(newStudent);
+                    ItemStorage.stdList.add(newStudent);
+                    masterDataStudent.setAll(ItemStorage.stdList);
                     namaField.clear();
                     nimField.clear();
                     mhsTable.refresh();
@@ -188,9 +193,13 @@ public class adminDashboard extends Application {
                 }
                 stage.close();
             });
+            HBox table = new HBox(10);
+            table.setPadding(new Insets(10, 0, 0, 0));
+            table.getChildren().addAll(itemBox, mhsBox);
 
-            root.getChildren().addAll(adminLabel, itemBox, mhsBox, kembali);
-            Scene scene = new Scene(root, 900, 900);
+
+            root.getChildren().addAll(adminLabel, table, kembali);
+            Scene scene = new Scene(root, 1020, 500);
             stage.setScene(scene);
             stage.setResizable(false);
             stage.show();

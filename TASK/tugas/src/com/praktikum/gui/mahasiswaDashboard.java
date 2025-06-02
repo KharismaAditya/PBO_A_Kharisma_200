@@ -36,9 +36,12 @@ public class mahasiswaDashboard extends Application {
         VBox root = new VBox(20);
         root.setPadding(new Insets(40));
         root.setAlignment(Pos.TOP_LEFT);
+        root.setStyle("-fx-background-color : #C4E1E6");
 
         Label profileLabel = new Label("Selamat datang, " + user);
+        profileLabel.setFont(Font.font("Tahoma", 18));
         Label informationLabel = new Label("Laporkan barang Hilang/Temuan");
+        informationLabel.setFont(Font.font("Tahoma", 18));
 
         HBox userField = new HBox(10);
         userField.setPadding(new Insets(5));
@@ -54,6 +57,10 @@ public class mahasiswaDashboard extends Application {
         lokasiBarang.setPromptText("Lokasi terakhir");
 
         Button laporkan = new Button("Laporkan");
+        laporkan.setStyle("-fx-background-color: #8DBCC7; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 30 10 30; -fx-background-radius: 5;");
+        laporkan.setOnMouseExited(e -> laporkan.setStyle("-fx-background-color: #8DBCC7; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 30 10 30; -fx-background-radius: 5;"));
+        laporkan.setOnMouseEntered(e -> laporkan.setStyle("-fx-background-color: #EBFFD8; -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 10 30 10 30; -fx-background-radius: 5;"));
+
 
         userField.getChildren().addAll(namaBarang, deskripsiBarang, lokasiBarang, laporkan);
 
@@ -95,10 +102,13 @@ public class mahasiswaDashboard extends Application {
             String lokasi = lokasiBarang.getText();
 
             masterData.add(new Item(barang, deskripsi, lokasi));
+            namaBarang.clear();
+            deskripsiBarang.clear();
+            lokasiBarang.clear();
         });
 
         root.getChildren().addAll(profileLabel, informationLabel, userField, tableView, logout);
-        Scene scene = new Scene(root, 800, 800);
+        Scene scene = new Scene(root, 800, 600);
         stage.setScene(scene);
         stage.show();
     }

@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.*;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -36,8 +37,10 @@ public class adminDashboard extends Application {
             VBox root = new VBox(20);
             root.setPadding(new Insets(40));
             root.setAlignment(Pos.TOP_LEFT);
+            root.setStyle("-fx-background-color : #C4E1E6");
 
             Label adminLabel = new Label("Halo, Administrator admin");
+            adminLabel.setFont(Font.font("tahoma", 18));
 
             //tabel barang
             VBox itemBox = new VBox(10);
@@ -65,6 +68,9 @@ public class adminDashboard extends Application {
             setStatCol.setCellFactory(e -> new TableCell<>() {
                 private final Button clBtn = new Button("CLAIMED");
                 {
+                    clBtn.setStyle("-fx-background-color: #8DBCC7; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 1 3 1 3; -fx-background-radius: 5;");
+                    clBtn.setOnMouseExited(e -> clBtn.setStyle("-fx-background-color: #8DBCC7; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 1 3 1 3; -fx-background-radius: 5;"));
+                    clBtn.setOnMouseEntered(e -> clBtn.setStyle("-fx-background-color: #EBFFD8; -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 1 3 1 3; -fx-background-radius: 5;"));
                     clBtn.setOnAction(ex -> {
                         Item item = getTableView().getItems().get(getIndex());
                         if(item.getStatus().equalsIgnoreCase("Founded")){
@@ -116,6 +122,9 @@ public class adminDashboard extends Application {
             hapusMhs.setCellFactory(e -> new TableCell<>() {
                 private final Button clBtn = new Button("HAPUS");
                 {
+                    clBtn.setStyle("-fx-background-color: #8DBCC7; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 1 3 1 3; -fx-background-radius: 5;");
+                    clBtn.setOnMouseExited(e -> clBtn.setStyle("-fx-background-color: #8DBCC7; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 1 3 1 3; -fx-background-radius: 5;"));
+                    clBtn.setOnMouseEntered(e -> clBtn.setStyle("-fx-background-color: #EBFFD8; -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 1 3 1 3; -fx-background-radius: 5;"));
                     clBtn.setOnAction(ex -> {
                         Student student = getTableView().getItems().get(getIndex());
 
@@ -160,8 +169,12 @@ public class adminDashboard extends Application {
             nimField.setPromptText("NIM");
 
             Button tambahBtn = new Button("Tambah");
+        tambahBtn.setStyle("-fx-background-color: #8DBCC7; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 1 3 1 3; -fx-background-radius: 5;");
+        tambahBtn.setOnMouseExited(e -> tambahBtn.setStyle("-fx-background-color: #8DBCC7; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 1 3 1 3; -fx-background-radius: 5;"));
+        tambahBtn.setOnMouseEntered(e -> tambahBtn.setStyle("-fx-background-color: #EBFFD8; -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 1 3 1 3; -fx-background-radius: 5;"));
 
-            tambahBtn.setOnAction(e -> {
+
+        tambahBtn.setOnAction(e -> {
                 String nama = namaField.getText().trim();
                 String nim = nimField.getText().trim();
 
@@ -184,7 +197,11 @@ public class adminDashboard extends Application {
             inputForm.getChildren().addAll(new Label("Nama:"), namaField, new Label("NIM:"), nimField, tambahBtn);
             mhsBox.getChildren().addAll(lapMahasiswa, mhsTable, inputForm);
             Button kembali = new Button("KEMBALI");
-            kembali.setOnAction(e -> {
+        kembali.setStyle("-fx-background-color: #8DBCC7; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 1 3 1 3; -fx-background-radius: 5;");
+        kembali.setOnMouseExited(e -> kembali.setStyle("-fx-background-color: #8DBCC7; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 1 3 1 3; -fx-background-radius: 5;"));
+        kembali.setOnMouseEntered(e -> kembali.setStyle("-fx-background-color: #EBFFD8; -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 1 3 1 3; -fx-background-radius: 5;"));
+
+        kembali.setOnAction(e -> {
                 LoginPane login = new LoginPane();
                 try {
                     login.start(new Stage());

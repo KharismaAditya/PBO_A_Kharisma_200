@@ -7,6 +7,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import com.praktikum.data.*;
@@ -24,8 +26,10 @@ public class LoginPane extends Application {
         VBox root = new VBox(20);
         root.setPadding(new Insets(40));
         root.setAlignment(Pos.TOP_CENTER);
+        root.setStyle("-fx-background-color : #C4E1E6");
 
         Label titleLabel = new Label("Login Sistem Lost & Found");
+        titleLabel.setFont(Font.font("Tahoma",18));
         ComboBox<String> personType = new ComboBox<>();
         personType.getItems().addAll("Mahasiswa", "Admin");
         personType.setValue("Mahasiswa");
@@ -37,7 +41,12 @@ public class LoginPane extends Application {
         passwordField.setPromptText("Masukkan Nomor ID");
 
         Button login = new Button("Login");
+        login.setStyle("-fx-background-color: #8DBCC7; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 30 10 30; -fx-background-radius: 5;");
+        login.setOnMouseExited(e -> login.setStyle("-fx-background-color: #8DBCC7; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 30 10 30; -fx-background-radius: 5;"));
+        login.setOnMouseEntered(e -> login.setStyle("-fx-background-color: #EBFFD8; -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 10 30 10 30; -fx-background-radius: 5;"));
+
         Label announce = new Label();
+        announce.setFont(Font.font("Tahoma", 16));
 
         login.setOnAction(e -> {
             String user = userNameField.getText();
@@ -56,6 +65,7 @@ public class LoginPane extends Application {
                     stage.close();
                 }else {
                     announce.setText("LOGIN GAGAL");
+                    announce.setTextFill(Color.RED);
                 }
             }else if(personChoice.equals("Admin")){
                 if(user.equals("Admin200") && pass.equals("Password200")){
